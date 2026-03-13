@@ -266,8 +266,36 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav ul { gap: 1rem; font-size: 0.9rem; }
+            .hero {
+                height: auto;
+                padding: 4rem 1.5rem;
+                text-align: center;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .logo-large {
+                max-width: 200px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin: 0 auto;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
     </style>
 </head>
