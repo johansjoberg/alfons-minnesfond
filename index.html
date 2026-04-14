@@ -44,9 +44,45 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 0 1.5rem;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 28px;
+        }
+
+        .lang-btn svg {
+            width: 100%;
+            height: 100%;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .lang-btn:hover svg {
+            transform: translateY(-1px);
+        }
+
+        .lang-btn.active svg {
+            border-color: #ffffff;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
         }
 
         nav ul {
@@ -308,92 +344,109 @@
         <div class="header-container">
             <nav>
                 <ul>
-                    <li><a href="#home">Hem</a></li>
-                    <li><a href="#about">Ändamål</a></li>
-                    <li><a href="#statutes">Stadgar</a></li>
-                    <li><a href="#board">Styrelse</a></li>
-                    <li><a href="#alfons">Om Alfons</a></li>
+                    <li><a href="#home" data-i18n="nav-home">Hem</a></li>
+                    <li><a href="#about" data-i18n="nav-purpose">Ändamål</a></li>
+                    <li><a href="#statutes" data-i18n="nav-statutes">Stadgar</a></li>
+                    <li><a href="#board" data-i18n="nav-board">Styrelse</a></li>
+                    <li><a href="#alfons" data-i18n="nav-about-alfons">Om Alfons</a></li>
                 </ul>
             </nav>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('sv')" id="btn-sv" title="Svenska" aria-label="Byt till svenska">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-se" viewBox="0 0 640 480">
+                      <path fill="#005293" d="M0 0h640v480H0z"/>
+                      <path fill="#fecb00" d="M176 0v192H0v96h176v192h96V288h368v-96H272V0z"/>
+                    </svg>
+                </button>
+                <button class="lang-btn" onclick="switchLanguage('en')" id="btn-en" title="English" aria-label="Switch to English">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-gb" viewBox="0 0 640 480">
+                      <path fill="#012169" d="M0 0h640v480H0z"/>
+                      <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z"/>
+                      <path fill="#C8102E" d="m424 281 216 159v40L369 281zm-184 20 6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z"/>
+                      <path fill="#FFF" d="M241 0v480h160V0zM0 160v160h640V160z"/>
+                      <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
     <div id="home" class="hero">
         <div class="hero-container">
-            <img src="logo.png?v=15" alt="Alfons minnesfond" class="logo-large">
+            <img src="logo.png?v=15" alt="Alfons minnesfond" class="logo-large" data-i18n-alt="hero-logo-alt">
             <div class="hero-content">
-                <h1>Alfons minnesfond</h1>
-                <p>En ideell förening som ger ekonomiskt stöd till hundar med allergibesvär för att främja god djurhälsa.</p>
-                <a href="#about" class="btn">Läs mer</a>
+                <h1 data-i18n="hero-h1">Alfons minnesfond</h1>
+                <p data-i18n="hero-p">En ideell förening som ger ekonomiskt stöd till hundar med allergibesvär för att främja god djurhälsa.</p>
+                <a href="#about" class="btn" data-i18n="hero-btn">Läs mer</a>
             </div>
         </div>
     </div>
 
     <section id="about">
-        <h2>Vårt ändamål</h2>
-        <p>Alfons minnesfond är en ideell förening bildad till minne av hunden Alfons. Vårt ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver.</p>
-        <p style="margin-top: 1rem;">Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl. Beslut om stöd fattas företrädesvis efter rekommendation från våra samarbetspartners inom veterinärvården.</p>
+        <h2 data-i18n="purpose-h2">Vårt ändamål</h2>
+        <p data-i18n="purpose-p1">Alfons minnesfond är en ideell förening bildad till minne av hunden Alfons. Vårt ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver.</p>
+        <p style="margin-top: 1rem;" data-i18n="purpose-p2">Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl. Beslut om stöd fattas företrädesvis efter rekommendation från våra samarbetspartners inom veterinärvården.</p>
     </section>
 
     <section id="statutes">
-        <h2>Stadgar</h2>
+        <h2 data-i18n="statutes-h2">Stadgar</h2>
         
         <div class="statute-card">
-            <h3>§ 1 Namn och säte</h3>
-            <p>Föreningens namn är Alfons minnesfond. Föreningen har sitt säte i Staffanstorps kommun.</p>
+            <h3 data-i18n="statutes-1-h3">§ 1 Namn och säte</h3>
+            <p data-i18n="statutes-1-p">Föreningens namn är Alfons minnesfond. Föreningen har sitt säte i Staffanstorps kommun.</p>
         </div>
 
         <div class="statute-card">
-            <h3>§ 2 Ändamål</h3>
-            <p>Föreningen är en ideell förening bildad till minne av hunden Alfons. Föreningens ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver. Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl.</p>
+            <h3 data-i18n="statutes-2-h3">§ 2 Ändamål</h3>
+            <p data-i18n="statutes-2-p">Föreningen är en ideell förening bildad till minne av hunden Alfons. Föreningens ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver. Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl.</p>
         </div>
 
         <div class="statute-card">
-            <h3>§ 3 Medlemskap</h3>
-            <p>Medlemskap i föreningen erhålls efter ansökan som godkänns av styrelsen. Styrelsen har rätt att begränsa antalet medlemmar och neka medlemskap utan att ange skäl.</p>
+            <h3 data-i18n="statutes-3-h3">§ 3 Medlemskap</h3>
+            <p data-i18n="statutes-3-p">Medlemskap i föreningen erhålls efter ansökan som godkänns av styrelsen. Styrelsen har rätt att begränsa antalet medlemmar och neka medlemskap utan att ange skäl.</p>
         </div>
 
         <div class="statute-card">
-            <h3>§ 4 Styrelse och firmateckning</h3>
-            <p>Styrelsen består av ordförande, kassör och sekreterare. Föreningens firma tecknas av ordförande och kassör var för sig.</p>
+            <h3 data-i18n="statutes-4-h3">§ 4 Styrelse och firmateckning</h3>
+            <p data-i18n="statutes-4-p">Styrelsen består av ordförande, kassör och sekreterare. Föreningens firma tecknas av ordförande och kassör var för sig.</p>
         </div>
 
         <div class="statute-card">
-            <h3>§ 5 Beslutsfattande</h3>
-            <p>Styrelsen fattar beslut om vilka vårdinsatser eller projekt som ska stöttas med föreningens medel. Besluten fattas företrädesvis efter rekommendation från samarbetspartners inom veterinärvården.</p>
+            <h3 data-i18n="statutes-5-h3">§ 5 Beslutsfattande</h3>
+            <p data-i18n="statutes-5-p">Styrelsen fattar beslut om vilka vårdinsatser eller projekt som ska stöttas med föreningens medel. Besluten fattas företrädesvis efter rekommendation från samarbetspartners inom veterinärvården.</p>
         </div>
 
         <div class="statute-card">
-            <h3>§ 6 Upplösning</h3>
-            <p>Beslut om föreningens upplösning fattas av styrelsen. Vid upplösning ska kvarvarande tillgångar användas i enlighet med föreningens syfte eller skänkas till annat ändamål som främjar hundars välbefinnande.</p>
+            <h3 data-i18n="statutes-6-h3">§ 6 Upplösning</h3>
+            <p data-i18n="statutes-6-p">Beslut om föreningens upplösning fattas av styrelsen. Vid upplösning ska kvarvarande tillgångar användas i enlighet med föreningens syfte eller skänkas till annat ändamål som främjar hundars välbefinnande.</p>
         </div>
     </section>
 
     <section id="board">
-        <h2>Styrelse</h2>
+        <h2 data-i18n="board-h2">Styrelse</h2>
         <div class="board-grid">
             <div class="board-member">
                 <div class="avatar">👤</div>
                 <h3>Johan Sjöberg</h3>
-                <p class="role">Ordförande</p>
+                <p class="role" data-i18n="board-chair">Ordförande</p>
             </div>
             <div class="board-member">
                 <div class="avatar">👤</div>
                 <h3>Emma Sjöberg</h3>
-                <p class="role">Kassör</p>
+                <p class="role" data-i18n="board-treasurer">Kassör</p>
             </div>
             <div class="board-member">
                 <div class="avatar">👤</div>
                 <h3>Philip Södervall</h3>
-                <p class="role">Sekreterare</p>
+                <p class="role" data-i18n="board-secretary">Sekreterare</p>
             </div>
         </div>
     </section>
 
     <section id="alfons">
-        <h2>Om Alfons</h2>
-        <p>Alfons hade tidigt problem med klåda och det var inte förrän vi kom i kontakt med Vetaderm som vi fick bukt med hans allergiproblem. Alfons hade även andra problem, kronisk inflammation i tarmen, ögonsjukdom m.m.</p>
-        <p style="margin-top: 1rem;">Men med hjälp av veterinärer på Vetaderm och Evidensia, så fick Alfons flera goda år med oss och vi minns honom med värme och stor saknad. Men med denna fond lever Alfons nu vidare genom att se till att fler familjer får chansen till flera goda år med sina hundar.</p>
+        <h2 data-i18n="alfons-h2">Om Alfons</h2>
+        <p data-i18n="alfons-p1">Alfons hade tidigt problem med klåda och det var inte förrän vi kom i kontakt med Vetaderm som vi fick bukt med hans allergiproblem. Alfons hade även andra problem, kronisk inflammation i tarmen, ögonsjukdom m.m.</p>
+        <p style="margin-top: 1rem;" data-i18n="alfons-p2">Men med hjälp av veterinärer på Vetaderm och Evidensia, så fick Alfons flera goda år med oss och vi minns honom med värme och stor saknad. Men med denna fond lever Alfons nu vidare genom att se till att fler familjer får chansen till flera goda år med sina hundar.</p>
         
         <div class="gallery-grid">
             <div class="gallery-item">
@@ -436,21 +489,21 @@
     </section>
 
     <section class="partners-section">
-        <h2 style="margin-bottom: 1rem;">Våra samarbetspartners</h2>
-        <p>Vi arbetar nära specialiserade veterinärer för att säkerställa att stödet går till de hundar som behöver det mest.</p>
+        <h2 style="margin-bottom: 1rem;" data-i18n="partners-h2">Våra samarbetspartners</h2>
+        <p data-i18n="partners-p">Vi arbetar nära specialiserade veterinärer för att säkerställa att stödet går till de hundar som behöver det mest.</p>
         <div style="margin-top: 2rem;">
             <a href="https://vetaderm.se/" target="_blank" rel="noopener">
-                <img src="vetaderm_logo.png" alt="Vetaderm i Lund" class="partner-logo">
+                <img src="vetaderm_logo.png" alt="Vetaderm i Lund" class="partner-logo" data-i18n-alt="partners-vetaderm-alt">
             </a>
-            <p style="margin-top: 1rem; font-weight: bold; color: var(--primary-color);">Vetaderm i Lund</p>
+            <p style="margin-top: 1rem; font-weight: bold; color: var(--primary-color);" data-i18n="partners-vetaderm">Vetaderm i Lund</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Alfons minnesfond</h3>
-            <p>Säte: Staffanstorps kommun</p>
-            <p style="margin-top: 2rem; font-size: 0.8rem; color: #777;">&copy; 2026 Alfons minnesfond. Alla rättigheter förbehållna.</p>
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem;" data-i18n="footer-h3">Alfons minnesfond</h3>
+            <p data-i18n="footer-office">Säte: Staffanstorps kommun</p>
+            <p style="margin-top: 2rem; font-size: 0.8rem; color: #777;" data-i18n="footer-rights">&copy; 2026 Alfons minnesfond. Alla rättigheter förbehållna.</p>
         </div>
     </footer>
 
@@ -459,6 +512,147 @@
         <span class="close">&times;</span>
         <img class="modal-content" id="imgFull">
     </div>
+
+    <script>
+        const translations = {
+            sv: {
+                "title": "Alfons minnesfond",
+                "nav-home": "Hem",
+                "nav-purpose": "Ändamål",
+                "nav-statutes": "Stadgar",
+                "nav-board": "Styrelse",
+                "nav-about-alfons": "Om Alfons",
+                "hero-logo-alt": "Alfons minnesfond",
+                "hero-h1": "Alfons minnesfond",
+                "hero-p": "En ideell förening som ger ekonomiskt stöd till hundar med allergibesvär för att främja god djurhälsa.",
+                "hero-btn": "Läs mer",
+                "purpose-h2": "Vårt ändamål",
+                "purpose-p1": "Alfons minnesfond är en ideell förening bildad till minne av hunden Alfons. Vårt ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver.",
+                "purpose-p2": "Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl. Beslut om stöd fattas företrädesvis efter rekommendation från våra samarbetspartners inom veterinärvården.",
+                "statutes-h2": "Stadgar",
+                "statutes-1-h3": "§ 1 Namn och säte",
+                "statutes-1-p": "Föreningens namn är Alfons minnesfond. Föreningen har sitt säte i Staffanstorps kommun.",
+                "statutes-2-h3": "§ 2 Ändamål",
+                "statutes-2-p": "Föreningen är en ideell förening bildad till minne av hunden Alfons. Föreningens ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver. Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl.",
+                "statutes-3-h3": "§ 3 Medlemskap",
+                "statutes-3-p": "Medlemskap i föreningen erhålls efter ansökan som godkänns av styrelsen. Styrelsen har rätt att begränsa antalet medlemmar och neka medlemskap utan att ange skäl.",
+                "statutes-4-h3": "§ 4 Styrelse och firmateckning",
+                "statutes-4-p": "Styrelsen består av ordförande, kassör och sekreterare. Föreningens firma tecknas av ordförande och kassör var för sig.",
+                "statutes-5-h3": "§ 5 Beslutsfattande",
+                "statutes-5-p": "Styrelsen fattar beslut om vilka vårdinsatser eller projekt som ska stöttas med föreningens medel. Besluten fattas företrädesvis efter rekommendation från samarbetspartners inom veterinärvården.",
+                "statutes-6-h3": "§ 6 Upplösning",
+                "statutes-6-p": "Beslut om föreningens upplösning fattas av styrelsen. Vid upplösning ska kvarvarande tillgångar användas i enlighet med föreningens syfte eller skänkas till annat ändamål som främjar hundars välbefinnande.",
+                "board-h2": "Styrelse",
+                "board-chair": "Ordförande",
+                "board-treasurer": "Kassör",
+                "board-secretary": "Sekreterare",
+                "alfons-h2": "Om Alfons",
+                "alfons-p1": "Alfons hade tidigt problem med klåda och det var inte förrän vi kom i kontakt med Vetaderm som vi fick bukt med hans allergiproblem. Alfons hade även andra problem, kronisk inflammation i tarmen, ögonsjukdom m.m.",
+                "alfons-p2": "Men med hjälp av veterinärer på Vetaderm och Evidensia, så fick Alfons flera goda år med oss och vi minns honom med värme och stor saknad. Men med denna fond lever Alfons nu vidare genom att se till att fler familjer får chansen till flera goda år med sina hundar.",
+                "partners-h2": "Våra samarbetspartners",
+                "partners-p": "Vi arbetar nära specialiserade veterinärer för att säkerställa att stödet går till de hundar som behöver det mest.",
+                "partners-vetaderm-alt": "Vetaderm i Lund",
+                "partners-vetaderm": "Vetaderm i Lund",
+                "footer-h3": "Alfons minnesfond",
+                "footer-office": "Säte: Staffanstorps kommun",
+                "footer-rights": "© 2026 Alfons minnesfond. Alla rättigheter förbehållna."
+            },
+            en: {
+                "title": "Alfons Memorial Fund",
+                "nav-home": "Home",
+                "nav-purpose": "Purpose",
+                "nav-statutes": "Statutes",
+                "nav-board": "Board",
+                "nav-about-alfons": "About Alfons",
+                "hero-logo-alt": "Alfons Memorial Fund",
+                "hero-h1": "Alfons Memorial Fund",
+                "hero-p": "A non-profit association providing financial support to dogs with allergy problems to promote good animal health.",
+                "hero-btn": "Read more",
+                "purpose-h2": "Our Purpose",
+                "purpose-p1": "The Alfons Memorial Fund is a non-profit association formed in memory of the dog Alfons. Our purpose is to provide financial support for the investigation and treatment of dogs with allergy problems, in cases where the owner's financial situation means that the dog would otherwise not receive the treatment it needs.",
+                "purpose-p2": "The association aims to promote good animal health and prevent dogs from suffering or being euthanized for economic reasons. Decisions on support are preferably made following recommendations from our veterinary partners.",
+                "statutes-h2": "Statutes",
+                "statutes-1-h3": "§ 1 Name and Registered Office",
+                "statutes-1-p": "The name of the association is Alfons Memorial Fund. The association is registered in the municipality of Staffanstorp.",
+                "statutes-2-h3": "§ 2 Purpose",
+                "statutes-2-p": "The association is a non-profit association formed in memory of the dog Alfons. The association's purpose is to provide financial support for the investigation and treatment of dogs with allergy problems, in cases where the owner's financial situation means that the dog would otherwise not receive the treatment it needs. The association aims to promote good animal health and prevent dogs from suffering or being euthanized for economic reasons.",
+                "statutes-3-h3": "§ 3 Membership",
+                "statutes-3-p": "Membership in the association is obtained through an application approved by the board. The board reserves the right to limit the number of members and deny membership without providing a reason.",
+                "statutes-4-h3": "§ 4 Board and Authorized Signatories",
+                "statutes-4-p": "The board consists of a chairperson, treasurer, and secretary. The association's authorized signatories are the chairperson and the treasurer individually.",
+                "statutes-5-h3": "§ 5 Decision-making",
+                "statutes-5-p": "The board makes decisions on which healthcare measures or projects will be supported by the association's funds. Decisions are preferably made following recommendations from veterinary partners.",
+                "statutes-6-h3": "§ 6 Dissolution",
+                "statutes-6-p": "Decisions regarding the dissolution of the association are made by the board. Upon dissolution, any remaining assets shall be used in accordance with the association's purpose or donated to another cause that promotes the well-being of dogs.",
+                "board-h2": "Board",
+                "board-chair": "Chairperson",
+                "board-treasurer": "Treasurer",
+                "board-secretary": "Secretary",
+                "alfons-h2": "About Alfons",
+                "alfons-p1": "Alfons had issues with itching from an early age, and it wasn't until we contacted Vetaderm that we were able to resolve his allergy problems. Alfons also had other issues, including chronic bowel inflammation, eye disease, and more.",
+                "alfons-p2": "But with the help of the veterinarians at Vetaderm and Evidensia, Alfons had several good years with us, and we remember him with warmth and we miss him dearly. With this fund, Alfons now lives on by making sure that more families get the chance for several good years with their dogs.",
+                "partners-h2": "Our Partners",
+                "partners-p": "We work closely with specialized veterinarians to ensure that support goes to the dogs that need it most.",
+                "partners-vetaderm-alt": "Vetaderm in Lund",
+                "partners-vetaderm": "Vetaderm in Lund",
+                "footer-h3": "Alfons Memorial Fund",
+                "footer-office": "Registered office: Staffanstorp Municipality",
+                "footer-rights": "© 2026 Alfons Memorial Fund. All rights reserved."
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update title
+            if (translations[lang]["title"]) {
+                document.title = translations[lang]["title"];
+            }
+
+            // Update all text elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Update all alt elements
+            document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+                const key = el.getAttribute('data-i18n-alt');
+                if (translations[lang][key]) {
+                    el.setAttribute('alt', translations[lang][key]);
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${lang}`).classList.add('active');
+
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Initialize language
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            
+            if (savedLang) {
+                // Use explicitly saved preference if it exists
+                if (savedLang !== 'sv') switchLanguage(savedLang);
+            } else {
+                // No preference saved, detect from browser
+                const browserLang = navigator.language || navigator.userLanguage;
+                // If browser is set to Swedish, use Swedish, otherwise English
+                const detectedLang = browserLang && browserLang.toLowerCase().startsWith('sv') ? 'sv' : 'en';
+                
+                if (detectedLang !== 'sv') {
+                    switchLanguage(detectedLang);
+                }
+            }
+        });
+    </script>
 
     <script>
         const modal = document.getElementById("imageModal");
