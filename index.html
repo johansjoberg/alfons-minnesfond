@@ -51,7 +51,8 @@
 
         .lang-switcher {
             display: flex;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 0;
         }
 
         .lang-btn {
@@ -59,30 +60,24 @@
             border: none;
             cursor: pointer;
             padding: 0;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 28px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: color 0.2s ease;
         }
 
-        .lang-btn svg {
-            width: 100%;
-            height: 100%;
-            border-radius: 3px;
-            transition: all 0.2s ease;
-            border: 2px solid transparent;
+        .lang-btn:hover {
+            color: #ffffff;
         }
 
-        .lang-btn:hover svg {
-            transform: translateY(-1px);
+        .lang-btn.active {
+            color: #ffffff;
+            font-weight: bold;
         }
 
-        .lang-btn.active svg {
-            border-color: #ffffff;
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        .lang-separator {
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0.4rem;
         }
 
         nav ul {
@@ -352,28 +347,17 @@
                 </ul>
             </nav>
             <div class="lang-switcher">
-                <button class="lang-btn active" onclick="switchLanguage('sv')" id="btn-sv" title="Svenska" aria-label="Byt till svenska">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-se" viewBox="0 0 640 480">
-                      <path fill="#005293" d="M0 0h640v480H0z"/>
-                      <path fill="#fecb00" d="M176 0v192H0v96h176v192h96V288h368v-96H272V0z"/>
-                    </svg>
-                </button>
-                <button class="lang-btn" onclick="switchLanguage('en')" id="btn-en" title="English" aria-label="Switch to English">
-                    <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-gb" viewBox="0 0 640 480">
-                      <path fill="#012169" d="M0 0h640v480H0z"/>
-                      <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z"/>
-                      <path fill="#C8102E" d="m424 281 216 159v40L369 281zm-184 20 6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z"/>
-                      <path fill="#FFF" d="M241 0v480h160V0zM0 160v160h640V160z"/>
-                      <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z"/>
-                    </svg>
-                </button>
+                <button class="lang-btn active" onclick="switchLanguage('sv')" id="btn-sv" aria-label="Byt till svenska">Svenska</button>
+                <span class="lang-separator">|</span>
+                <button class="lang-btn" onclick="switchLanguage('en')" id="btn-en" aria-label="Switch to English">English</button>
+            </div>
             </div>
         </div>
     </header>
 
     <div id="home" class="hero">
         <div class="hero-container">
-            <img src="logo.png?v=15" alt="Alfons minnesfond" class="logo-large" data-i18n-alt="hero-logo-alt">
+            <img src="logo.png?v=15" alt="Alfons minnesfond" class="logo-large" id="hero-logo" data-i18n-alt="hero-logo-alt">
             <div class="hero-content">
                 <h1 data-i18n="hero-h1">Alfons minnesfond</h1>
                 <p data-i18n="hero-p">En ideell förening som ger ekonomiskt stöd till hundar med allergibesvär för att främja god djurhälsa.</p>
@@ -398,7 +382,7 @@
 
         <div class="statute-card">
             <h3 data-i18n="statutes-2-h3">§ 2 Ändamål</h3>
-            <p data-i18n="statutes-2-p">Föreningen är en ideell förening bildad till minne av hunden Alfons. Föreningens ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver. Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl.</p>
+            <p data-i18n="statutes-2-p">Föreningen är en ideell förening bildad till minne av hunden Alfons. Föreningens ändamål är att främja djurskydd och bedriva social hjälpverksamhet genom att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär. Stödet riktas till djurägare där ekonomiska hinder riskerar att stå i vägen för hundens välmående. Föreningen prioriterar insatser som bedöms ge en långsiktig förbättring av hundens livskvalitet och där stödet möjliggör en hållbar vårdplan för ägaren. Verksamheten syftar därmed till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl.</p>
         </div>
 
         <div class="statute-card">
@@ -408,17 +392,27 @@
 
         <div class="statute-card">
             <h3 data-i18n="statutes-4-h3">§ 4 Styrelse och firmateckning</h3>
-            <p data-i18n="statutes-4-p">Styrelsen består av ordförande, kassör och sekreterare. Föreningens firma tecknas av ordförande och kassör var för sig.</p>
+            <p data-i18n="statutes-4-p">Styrelsen består av ordförande, kassör och sekreterare. Föreningens firma tecknas av ordförande och kassör var för sig. Detta innebär att ordförande och kassör har individuell rätt att företräda föreningen och fatta beslut om utbetalningar i enlighet med föreningens ändamål.</p>
         </div>
 
         <div class="statute-card">
             <h3 data-i18n="statutes-5-h3">§ 5 Beslutsfattande</h3>
-            <p data-i18n="statutes-5-p">Styrelsen fattar beslut om vilka vårdinsatser eller projekt som ska stöttas med föreningens medel. Besluten fattas företrädesvis efter rekommendation från samarbetspartners inom veterinärvården.</p>
+            <p data-i18n="statutes-5-p">Beslut om ekonomiskt stöd till enskilda vårdinsatser fattas av ordförande eller kassör individuellt. Styrelsen fastställer årligen en policy för maxbelopp och kriterier för stöd. För att säkerställa att stödet når ekonomiskt behövande djurägare tillämpar föreningen en behovsprövning i enlighet med gällande policy.</p>
         </div>
 
         <div class="statute-card">
-            <h3 data-i18n="statutes-6-h3">§ 6 Upplösning</h3>
-            <p data-i18n="statutes-6-p">Beslut om föreningens upplösning fattas av styrelsen. Vid upplösning ska kvarvarande tillgångar användas i enlighet med föreningens syfte eller skänkas till annat ändamål som främjar hundars välbefinnande.</p>
+            <h3 data-i18n="statutes-6-h3">§ 6 Användning av medel (Fullföljd)</h3>
+            <p data-i18n="statutes-6-p">Föreningen ska använda minst 75 % av sina intäkter för att främja det i § 2 angivna ändamålet.</p>
+        </div>
+
+        <div class="statute-card">
+            <h3 data-i18n="statutes-7-h3">§ 7 Räkenskaper och förvaltning</h3>
+            <p data-i18n="statutes-7-p">Föreningens räkenskapsår följer kalenderåret. Styrelsen är skyldig att för varje räkenskapsår upprätta en kortfattad årsredovisning (ekonomiskt bokslut) och en verksamhetsberättelse som redovisar årets utdelningar. Dessa dokument ska presenteras vid föreningens ordinarie årsmöte.</p>
+        </div>
+
+        <div class="statute-card">
+            <h3 data-i18n="statutes-8-h3">§ 8 Upplösning</h3>
+            <p data-i18n="statutes-8-p">Beslut om föreningens upplösning fattas av styrelsen. Vid upplösning ska samtliga kvarvarande tillgångar skänkas till en annan allmännyttig organisation som främjar djurskydd eller hundars välbefinnande. Tillgångarna får ej skiftas ut till medlemmar eller stiftare.</p>
         </div>
     </section>
 
@@ -492,7 +486,7 @@
         <h2 style="margin-bottom: 1rem;" data-i18n="partners-h2">Våra samarbetspartners</h2>
         <p data-i18n="partners-p">Vi arbetar nära specialiserade veterinärer för att säkerställa att stödet går till de hundar som behöver det mest.</p>
         <div style="margin-top: 2rem;">
-            <a href="https://vetaderm.se/" target="_blank" rel="noopener">
+            <a href="https://www.vetaderm.se/lund" target="_blank" rel="noopener">
                 <img src="vetaderm_logo.png" alt="Vetaderm i Lund" class="partner-logo" data-i18n-alt="partners-vetaderm-alt">
             </a>
             <p style="margin-top: 1rem; font-weight: bold; color: var(--primary-color);" data-i18n="partners-vetaderm">Vetaderm i Lund</p>
@@ -533,15 +527,19 @@
                 "statutes-1-h3": "§ 1 Namn och säte",
                 "statutes-1-p": "Föreningens namn är Alfons minnesfond. Föreningen har sitt säte i Staffanstorps kommun.",
                 "statutes-2-h3": "§ 2 Ändamål",
-                "statutes-2-p": "Föreningen är en ideell förening bildad till minne av hunden Alfons. Föreningens ändamål är att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär, i de fall där ägarens ekonomiska situation innebär att hunden annars inte skulle få den behandling den behöver. Verksamheten syftar till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl.",
+                "statutes-2-p": "Föreningen är en ideell förening bildad till minne av hunden Alfons. Föreningens ändamål är att främja djurskydd och bedriva social hjälpverksamhet genom att ge ekonomiskt stöd till utredning och behandling av hundar med allergibesvär. Stödet riktas till djurägare där ekonomiska hinder riskerar att stå i vägen för hundens välmående. Föreningen prioriterar insatser som bedöms ge en långsiktig förbättring av hundens livskvalitet och där stödet möjliggör en hållbar vårdplan för ägaren. Verksamheten syftar därmed till att främja god djurhälsa och förhindra att hundar lider eller avlivas av ekonomiska skäl.",
                 "statutes-3-h3": "§ 3 Medlemskap",
                 "statutes-3-p": "Medlemskap i föreningen erhålls efter ansökan som godkänns av styrelsen. Styrelsen har rätt att begränsa antalet medlemmar och neka medlemskap utan att ange skäl.",
                 "statutes-4-h3": "§ 4 Styrelse och firmateckning",
-                "statutes-4-p": "Styrelsen består av ordförande, kassör och sekreterare. Föreningens firma tecknas av ordförande och kassör var för sig.",
+                "statutes-4-p": "Styrelsen består av ordförande, kassör och sekreterare. Föreningens firma tecknas av ordförande och kassör var för sig. Detta innebär att ordförande och kassör har individuell rätt att företräda föreningen och fatta beslut om utbetalningar i enlighet med föreningens ändamål.",
                 "statutes-5-h3": "§ 5 Beslutsfattande",
-                "statutes-5-p": "Styrelsen fattar beslut om vilka vårdinsatser eller projekt som ska stöttas med föreningens medel. Besluten fattas företrädesvis efter rekommendation från samarbetspartners inom veterinärvården.",
-                "statutes-6-h3": "§ 6 Upplösning",
-                "statutes-6-p": "Beslut om föreningens upplösning fattas av styrelsen. Vid upplösning ska kvarvarande tillgångar användas i enlighet med föreningens syfte eller skänkas till annat ändamål som främjar hundars välbefinnande.",
+                "statutes-5-p": "Beslut om ekonomiskt stöd till enskilda vårdinsatser fattas av ordförande eller kassör individuellt. Styrelsen fastställer årligen en policy för maxbelopp och kriterier för stöd. För att säkerställa att stödet når ekonomiskt behövande djurägare tillämpar föreningen en behovsprövning i enlighet med gällande policy.",
+                "statutes-6-h3": "§ 6 Användning av medel (Fullföljd)",
+                "statutes-6-p": "Föreningen ska använda minst 75 % av sina intäkter för att främja det i § 2 angivna ändamålet.",
+                "statutes-7-h3": "§ 7 Räkenskaper och förvaltning",
+                "statutes-7-p": "Föreningens räkenskapsår följer kalenderåret. Styrelsen är skyldig att för varje räkenskapsår upprätta en kortfattad årsredovisning (ekonomiskt bokslut) och en verksamhetsberättelse som redovisar årets utdelningar. Dessa dokument ska presenteras vid föreningens ordinarie årsmöte.",
+                "statutes-8-h3": "§ 8 Upplösning",
+                "statutes-8-p": "Beslut om föreningens upplösning fattas av styrelsen. Vid upplösning ska samtliga kvarvarande tillgångar skänkas till en annan allmännyttig organisation som främjar djurskydd eller hundars välbefinnande. Tillgångarna får ej skiftas ut till medlemmar eller stiftare.",
                 "board-h2": "Styrelse",
                 "board-chair": "Ordförande",
                 "board-treasurer": "Kassör",
@@ -579,11 +577,15 @@
                 "statutes-3-h3": "§ 3 Membership",
                 "statutes-3-p": "Membership in the association is obtained through an application approved by the board. The board reserves the right to limit the number of members and deny membership without providing a reason.",
                 "statutes-4-h3": "§ 4 Board and Authorized Signatories",
-                "statutes-4-p": "The board consists of a chairperson, treasurer, and secretary. The association's authorized signatories are the chairperson and the treasurer individually.",
+                "statutes-4-p": "The board consists of a chairperson, treasurer, and secretary. The association's authorized signatories are the chairperson and the treasurer individually. This means that the chairperson and treasurer each have an individual right to represent the association and make decisions on disbursements in accordance with the association's purpose.",
                 "statutes-5-h3": "§ 5 Decision-making",
-                "statutes-5-p": "The board makes decisions on which healthcare measures or projects will be supported by the association's funds. Decisions are preferably made following recommendations from veterinary partners.",
-                "statutes-6-h3": "§ 6 Dissolution",
-                "statutes-6-p": "Decisions regarding the dissolution of the association are made by the board. Upon dissolution, any remaining assets shall be used in accordance with the association's purpose or donated to another cause that promotes the well-being of dogs.",
+                "statutes-5-p": "Decisions on financial support for individual care interventions are made by the chairperson or treasurer individually. The board annually establishes a policy for maximum amounts and criteria for support. To ensure that support reaches financially needy pet owners, the association applies a means-testing process in accordance with the current policy.",
+                "statutes-6-h3": "§ 6 Use of Funds (Furtherance)",
+                "statutes-6-p": "The association shall use at least 75% of its income to promote the purpose stated in § 2.",
+                "statutes-7-h3": "§ 7 Accounts and Management",
+                "statutes-7-p": "The association's financial year follows the calendar year. The board is obligated to prepare a brief annual report (financial statement) and an activity report detailing the year's distributions for each financial year. These documents shall be presented at the association's annual general meeting.",
+                "statutes-8-h3": "§ 8 Dissolution",
+                "statutes-8-p": "Decisions regarding the dissolution of the association are made by the board. Upon dissolution, all remaining assets shall be donated to another non-profit organization that promotes animal welfare or the well-being of dogs. Assets may not be distributed to members or founders.",
                 "board-h2": "Board",
                 "board-chair": "Chairperson",
                 "board-treasurer": "Treasurer",
@@ -629,6 +631,12 @@
             // Update active button state
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(`btn-${lang}`).classList.add('active');
+
+            // Update logo based on language
+            const heroLogo = document.getElementById('hero-logo');
+            if (heroLogo) {
+                heroLogo.src = lang === 'en' ? 'logo_english.png' : 'logo.png?v=15';
+            }
 
             // Save preference
             localStorage.setItem('preferredLanguage', lang);

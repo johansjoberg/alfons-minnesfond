@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/johansjoberg/alfons-minnesfond#readme",
   "dependencies": {
-    "flag-icons": "^7.5.0"
+    "flag-icons": "^7.5.0",
+    "jimp": "^1.6.1"
   }
 }
