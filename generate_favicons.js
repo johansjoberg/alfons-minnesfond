@@ -28,9 +28,15 @@ async function generateFavicons() {
   console.log(`Reading ${INPUT}...`);
   const source = await Jimp.read(INPUT);
 
+  // logo.png has transparent padding (notably a tall band below the badge), so a
+  // straight resize to a square canvas would stretch the artwork horizontally.
+  // Trim to the visible artwork first, then letterbox it into the square.
+  source.autocrop();
+  console.log(`  Trimmed to artwork: ${source.width}x${source.height}`);
+
   for (const { file, size } of SIZES) {
     const copy = source.clone();
-    copy.resize({ w: size, h: size });
+    copy.contain({ w: size, h: size });
     await copy.write(file);
     console.log(`  Created ${file} (${size}x${size})`);
   }
