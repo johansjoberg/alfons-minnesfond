@@ -761,6 +761,12 @@
             .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
             .btn { padding: .85rem 1.4rem; font-size: .9rem; }
         }
+            .swish-qr { display: none; text-align: center; margin-top: 1rem; }
+        .swish-qr img { height: auto; }
+        @media (hover: hover) and (pointer: fine) {
+            .swish-mobile { display: none; }
+            .swish-qr { display: block; }
+        }
     </style>
 </head>
 <body>
@@ -779,6 +785,7 @@
                     <li><a href="#statutes" data-i18n="nav-statutes">Stadgar</a></li>
                     <li><a href="#board" data-i18n="nav-board">Styrelse</a></li>
                     <li><a href="#alfons" data-i18n="nav-about-alfons">Om Alfons</a></li>
+                    <li><a href="#donate" data-i18n="nav-donate">Donera</a></li>
                 </ul>
             </nav>
 
@@ -807,6 +814,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                     </a>
                     <a href="#alfons" class="btn btn-ghost" data-i18n="nav-about-alfons">Om Alfons</a>
+                    <a href="#donate" class="btn btn-ghost" data-i18n="nav-donate">Donera</a>
                 </div>
             </div>
         </div>
@@ -970,6 +978,23 @@
         </div>
     </section>
 
+    <section id="donate" class="partners-section">
+        <div class="wrap-narrow reveal">
+            <div class="section-head" style="margin-bottom: 0;">
+                <h2 data-i18n="donate-h2">Stöd oss</h2>
+                <div class="rule"></div>
+            </div>
+            <p style="margin-top: 1.75rem;" data-i18n="donate-p">Vill du bidra till hundar med allergibesvär? Varje gåva gör skillnad.</p>
+            <p><strong data-i18n="donate-swish">Swish: 123 636 38 57</strong></p>
+            <a class="btn btn-primary swish-mobile" href="https://app.swish.nu/1/p/sw/?sw=1236363857&amp;msg=G%C3%A5va%20Alfons%20minnesfond&amp;edit=msg,amt&amp;src=qr" data-i18n="donate-swish-btn">Swisha en gåva</a>
+            <div class="swish-qr">
+                <img src="swish-QR-small.png" width="240" alt="Swish QR 123 636 38 57">
+                <p data-i18n="donate-qr-text">Skanna med Swish-appen</p>
+            </div>
+            <p style="margin-top: 1.25rem;"><strong data-i18n="donate-bg">Bankgiro: 5394-9871</strong></p>
+        </div>
+    </section>
+
     <footer>
         <div class="wrap">
             <img src="favicon-192x192.png" alt="" aria-hidden="true" class="footer-logo">
@@ -1008,6 +1033,13 @@
                 "nav-statutes": "Stadgar",
                 "nav-board": "Styrelse",
                 "nav-about-alfons": "Om Alfons",
+                "nav-donate": "Donera",
+                "donate-h2": "Stöd oss",
+                "donate-p": "Vill du bidra till hundar med allergibesvär? Varje gåva gör skillnad.",
+                "donate-swish": "Swish: 123 636 38 57",
+                "donate-swish-btn": "Swisha en gåva",
+                "donate-qr-text": "Skanna med Swish-appen",
+                "donate-bg": "Bankgiro: 5394-9871",
                 "hero-logo-alt": "Alfons minnesfond",
                 "hero-h1": "Alfons minnesfond",
                 "hero-p": "En ideell förening som ger ekonomiskt stöd till hundar med allergibesvär för att främja god djurhälsa.",
@@ -1056,6 +1088,13 @@
                 "nav-statutes": "Statutes",
                 "nav-board": "Board",
                 "nav-about-alfons": "About Alfons",
+                "nav-donate": "Donate",
+                "donate-h2": "Support us",
+                "donate-p": "Want to help dogs with allergies? Every gift makes a difference.",
+                "donate-swish": "Swish: 123 636 38 57",
+                "donate-swish-btn": "Donate with Swish",
+                "donate-qr-text": "Scan with the Swish app",
+                "donate-bg": "Bank giro: 5394-9871",
                 "hero-logo-alt": "Alfons Memorial Fund",
                 "hero-h1": "Alfons Memorial Fund",
                 "hero-p": "A non-profit association providing financial support to dogs with allergy problems to promote good animal health.",
