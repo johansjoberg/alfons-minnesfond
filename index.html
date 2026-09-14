@@ -762,7 +762,7 @@
             .btn { padding: .85rem 1.4rem; font-size: .9rem; }
         }
             .swish-qr { display: none; text-align: center; margin-top: 1rem; }
-        .swish-qr img { height: auto; }
+        .swish-qr img { height: auto; display: block; margin: 0 auto; }
         @media (hover: hover) and (pointer: fine) {
             .swish-mobile { display: none; }
             .swish-qr { display: block; }
@@ -997,7 +997,7 @@
 
     <footer>
         <div class="wrap">
-            <img src="favicon-192x192.png" alt="" aria-hidden="true" class="footer-logo">
+            <img src="favicon-192x192.png" alt="" aria-hidden="true" class="footer-logo" id="footer-logo">
             <h3 data-i18n="footer-h3">Alfons minnesfond</h3>
             <p class="footer-office" data-i18n="footer-office">Säte: Staffanstorps kommun</p>
             <p class="footer-office" data-i18n="footer-orgaddress">Org.nr 802556-6020 · Bjällerupsvägen 59-0, 245 92 Staffanstorp</p>
@@ -1166,6 +1166,9 @@
             if (heroLogo) {
                 heroLogo.src = lang === 'en' ? 'logo_english.png' : 'logo.png?v=15';
             }
+            document.querySelectorAll('.brand img, #footer-logo').forEach(img => {
+                img.src = lang === 'en' ? 'logo_english.png' : 'favicon-192x192.png';
+            });
 
             localStorage.setItem('preferredLanguage', lang);
         }
