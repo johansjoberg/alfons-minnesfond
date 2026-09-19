@@ -1,0 +1,10 @@
+[tools]
+node = "26"
+
+[tasks.test]
+description = "Check that impact.csv parses into the right counts"
+run = "node test-impact.js"
+
+[tasks.serve]
+description = "Serve the site at http://localhost:8765"
+run = "python3 -m http.server 8765"
